@@ -30,6 +30,8 @@ def simpleMovingAverage(*args):
         totalPrice += stock[n].getPrice()
         n+=1
     return round(totalPrice/number,2)
+def getFormattedDate(date):
+    return f"{getMonth(date.getDate().month)} {date.getDate().day} {date.getDate().year}"
 
 def getMonth(month):
     if month==1:
@@ -102,7 +104,7 @@ def main():
     else:
         print("This stock may be fluctuating because historical data indicates a upward trend")
 
-   
+
     print("End of program")
     
 if __name__ == '__main__': main()
