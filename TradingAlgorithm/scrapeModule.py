@@ -6,7 +6,6 @@ from datetime import datetime,timedelta
 import time
 import requests, pandas, lxml, numpy
 from lxml import html
-import time
 
 def format_date(date_datetime):
     date_timetuple = date_datetime.timetuple()
@@ -91,7 +90,7 @@ def main():
     start = format_date(dt_start)
     end = format_date(dt_end)
 
-    symbol = 'BTC-USD'
+    symbol = 'ETH-USD'
     sub = subdomain(symbol, start, end)
     header = header_function(sub)
     base_url = "https://finance.yahoo.com"
@@ -119,14 +118,18 @@ def main():
     
     #Modifications to file including remove unnamed columns, columns 1,2,3,5, and 6
     df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
-    df = df.drop(["1","2","3","5","6"], axis=1)
+    df = df.drop(["1"], axis=1)
     
     #Delete first row
     df = df.iloc[1:,]
     
     #Modify column headings
     df = df.rename(columns={"0":"Date"})
-    df = df.rename(columns={"4":"Closing Price"})
+    df = df.rename(columns={"2":"High"})
+    df = df.rename(columns={"3":"Low"})
+    df = df.rename(columns={"4":"Close"})
+    df = df.rename(columns={"5":"Adjusted Close"})
+    df = df.rename(columns={"6":"Volume"})
     print("Finsihed modifications of csv file")
     
     #Save to final file
@@ -136,10 +139,5 @@ def main():
     mainToc = time.perf_counter()
     print(f"Time it took to complete creating dataset {mainToc - mainTic:0.4f}")
     
-    
-    
-    
-    
-
 
 if __name__ == '__main__': main()
