@@ -125,16 +125,17 @@ def main():
     
     n = 1
     stock =[]
-
     while n < len(data):
-        stock.append(Stock(data[n][0], Decimal(sub(r'[^\d.]', '', data[n][1]))))
+        stock.append(Stock(data[n][0], Decimal(sub(r'[^\d.]', '', data[n][3]))))
         n += 1
+  
+    
     simpleFive = simpleMovingAverage(stock, 5)
     simpleTen = simpleMovingAverage(stock,10)
     simpleTwenty = simpleMovingAverage(stock,20)
     print()
     print("Loading data analysis for stock.....")
-    print(f"Current price as of {stock[0].getDate()} ${stock[0].getPrice():.2f}")
+    print(f"Current price as of {stock[0].getDate()} ${stock[0].getPrice():.2f} with a $5+- give or take")
     print(f"Simple Moving Average for passed 5 days is {simpleFive:.2f}")
     print(f"Simple Moving Average for passed 10 days is {simpleTen:.2f}")
     print(f"Simple Moving Average for passed 20 days is {simpleTwenty:.2f}")
