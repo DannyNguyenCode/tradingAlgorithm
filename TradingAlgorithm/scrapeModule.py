@@ -81,7 +81,7 @@ def scrape_page(url, header):
 
 
 
-def main():   
+def main(argv):   
     print("Executing Scrape.....")
     mainTic = time.perf_counter()
     
@@ -90,7 +90,7 @@ def main():
     start = format_date(dt_start)
     end = format_date(dt_end)
 
-    symbol = 'ETH-USD'
+    symbol = argv
     sub = subdomain(symbol, start, end)
     header = header_function(sub)
     base_url = "https://finance.yahoo.com"
