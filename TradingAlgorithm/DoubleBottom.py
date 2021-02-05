@@ -43,6 +43,7 @@ def main():
     print(f"Time it took to fill list with data {toc - tic:0.4f}")
     x = [sub[0] for sub in lowDataSet]
     y = [sub[1] for sub in lowDataSet]
+
     plt.plot(x,y)
     plt.xticks(rotation=90)
     plt.show()

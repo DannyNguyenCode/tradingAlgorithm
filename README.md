@@ -1,14 +1,13 @@
 # TradingAlgorithm
-<br>
-## Working Pattern/Indicators <br>
+
+## Working Pattern/Indicators
 * Moving Average
-<br>
+
 ## How to Run
 * Download from github
 * Open in Python3 IDE/text editor
 * Select pattern or indicator to run (Moving Average is only one completed)
-* Enter SYMBOL of stock you wish to scrape
-    * example scrapeModule.main('BB')
+* Enter SYMBOL of stock you wish to scrape into scrapeModule function -- scrapeModule.main('BB')
 * Run program
 
 ## A rundown of how the program works
